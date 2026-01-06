@@ -1,0 +1,25 @@
+# SCDS Course Materials
+title: "SCDS Course Materials"
+description: "Data Science and Computing lectures at AUB"
+baseurl: ""
+url: ""
+
+# Build settings
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
+  input: GFM
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - scripts/
+  - "*.py"
+
+# Defaults for lectures
+defaults:
+  - scope:
+      path: "_pages"
+    values:
+      layout: "default"

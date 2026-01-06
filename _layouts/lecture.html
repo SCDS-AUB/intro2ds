@@ -1,0 +1,39 @@
+---
+layout: default
+---
+<article class="lecture">
+  <header class="lecture-header">
+    <h1>{{ page.title }}</h1>
+    <div class="lecture-meta">
+      <span class="course">{{ page.course }}</span>
+      <span class="module">Module {{ page.module }}: {{ page.module_name }}</span>
+      <span class="date">{{ page.date | date: "%B %d, %Y" }}</span>
+    </div>
+    <div class="lecture-resources">
+      {% if page.notebook %}
+      <a href="{{ page.notebook | relative_url }}" class="btn">Download Notebook</a>
+      {% endif %}
+      {% if page.slides %}
+      <a href="{{ page.slides | relative_url }}" class="btn">View Slides</a>
+      {% endif %}
+      {% if page.video %}
+      <a href="{{ page.video }}" class="btn">Watch Video</a>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="lecture-content">
+    {{ content }}
+  </div>
+
+  <footer class="lecture-footer">
+    <div class="lecture-nav">
+      {% if page.previous %}
+      <a href="{{ page.previous | relative_url }}" class="prev">&larr; Previous</a>
+      {% endif %}
+      {% if page.next %}
+      <a href="{{ page.next | relative_url }}" class="next">Next &rarr;</a>
+      {% endif %}
+    </div>
+  </footer>
+</article>

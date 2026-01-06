@@ -1,0 +1,108 @@
+---
+layout: default
+title: Home
+---
+
+<div class="hero">
+  <h1>SCDS Course Materials</h1>
+  <p class="tagline">School of Data Science and Computing at AUB</p>
+</div>
+
+<section class="intro">
+  <h2>About</h2>
+  <p>This site hosts lecture materials for the School of Data Science and Computing (SCDS) at the American University of Beirut. Our courses combine computational thinking with real-world data from diverse disciplines.</p>
+
+  <blockquote>
+    "Data science is the practice of building stable action-perception cycles with <strong>what is given</strong>."
+  </blockquote>
+</section>
+
+<section class="quick-links">
+  <h2>Quick Links</h2>
+  <ul>
+    <li><a href="{{ '/lectures.html' | relative_url }}">All Lectures</a> - Browse course materials</li>
+    <li><a href="{{ '/analysis.html' | relative_url }}">Faculty Research</a> - AUB researchers by DS module</li>
+    <li><a href="https://github.com/SCDS-AUB">GitHub</a> - Source code and notebooks</li>
+  </ul>
+</section>
+
+<section class="modules">
+  <h2>Course Modules</h2>
+  <p>Introduction to Data Science covers:</p>
+  <div class="module-grid">
+    <div class="module-card">
+      <h3>Vision</h3>
+      <p>How machines see: pixels, features, CNNs, and modern vision AI</p>
+      <a href="{{ '/lectures.html#vision' | relative_url }}">View lectures →</a>
+    </div>
+    <div class="module-card coming-soon">
+      <h3>Language</h3>
+      <p>NLP, tokenization, embeddings, transformers</p>
+      <span>Coming soon</span>
+    </div>
+    <div class="module-card coming-soon">
+      <h3>Time Series</h3>
+      <p>Forecasting, temporal patterns, sensor data</p>
+      <span>Coming soon</span>
+    </div>
+    <div class="module-card coming-soon">
+      <h3>Networks</h3>
+      <p>Graph analysis, social networks, communities</p>
+      <span>Coming soon</span>
+    </div>
+  </div>
+</section>
+
+<section class="pipeline">
+  <h2>Content Pipeline</h2>
+  <p>Each lecture follows this workflow:</p>
+  <ol>
+    <li><strong>Transcript</strong> - Voice notes or written outline</li>
+    <li><strong>Notebook</strong> - Interactive Jupyter notebook with code</li>
+    <li><strong>Markdown</strong> - Web-ready formatted content</li>
+    <li><strong>Website</strong> - Published here for students</li>
+  </ol>
+</section>
+
+<style>
+.hero {
+  text-align: center;
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+}
+.hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+.tagline { font-size: 1.2rem; color: #666; }
+
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.module-card {
+  background: var(--light-bg);
+  padding: 1.25rem;
+  border-radius: 6px;
+  border-left: 4px solid var(--accent-color);
+}
+.module-card h3 { margin: 0 0 0.5rem; font-size: 1.1rem; }
+.module-card p { font-size: 0.9rem; color: #555; margin-bottom: 0.75rem; }
+.module-card a { font-size: 0.85rem; }
+.module-card.coming-soon {
+  border-left-color: #ccc;
+  opacity: 0.7;
+}
+.module-card.coming-soon span {
+  font-size: 0.8rem;
+  color: #999;
+  font-style: italic;
+}
+
+.pipeline ol {
+  padding-left: 1.5rem;
+}
+.pipeline li {
+  margin-bottom: 0.5rem;
+}
+</style>
