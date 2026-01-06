@@ -679,13 +679,7 @@ This curriculum introduces students to the foundations of data science through h
 <li class="collaborator-item">
 <span class="collaborator-name">Mariette Awad</span>
 <span class="collaborator-dept">— Electrical and Computer Engineering</span>
-<div class="collaborator-reason">Deep transfer learning, cross-domain applications</div>
-<div class="publication-ref">"A Progressive and Cross-Domain Deep Transfer Learning Framework for Wrist Fracture Detection" (2021)</div>
-</li>
-<li class="collaborator-item">
-<span class="collaborator-name">Julia El-Zini</span>
-<span class="collaborator-dept">— Electrical and Computer Engineering</span>
-<div class="collaborator-reason">Deep learning for medical imaging, transfer learning</div>
+<div class="collaborator-reason">Deep transfer learning, cross-domain applications, medical imaging AI</div>
 <div class="publication-ref">"A Progressive and Cross-Domain Deep Transfer Learning Framework for Wrist Fracture Detection" (2021)</div>
 </li>
 <li class="collaborator-item">
@@ -879,6 +873,138 @@ This curriculum introduces students to the foundations of data science through h
 
 <div class="module-card">
 <div class="module-header">
+<div class="module-number">Module 3</div>
+<div class="module-title">Real-Time Time-Series Data</div>
+<div class="module-storyline">"Forecasting and Pattern Discovery in Temporal Data"</div>
+</div>
+<div class="module-body">
+
+<div class="module-section">
+<div class="section-title">Topics</div>
+<ul class="topic-list">
+<li class="topic-item">Real-time data streams</li>
+<li class="topic-item">Streaming architectures</li>
+<li class="topic-item">Online learning</li>
+<li class="topic-item">Edge computing</li>
+</ul>
+</div>
+
+<div class="module-section">
+<div class="section-title">Computing</div>
+<div class="computing-box">Implementing real-time time-series models, streaming pipelines</div>
+</div>
+
+<div class="module-section">
+<div class="section-title">Potential Collaborators</div>
+<ul class="collaborator-list">
+<li class="collaborator-item">
+<span class="collaborator-name">Mechatronics Lab</span>
+<span class="collaborator-dept">— Mechanical Engineering</span>
+<div class="collaborator-reason">Sensors and measurement devices for real-time processing</div>
+</li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<div class="module-card">
+<div class="module-header">
+<div class="module-number">Module 4</div>
+<div class="module-title">OCR and Document Processing</div>
+<div class="module-storyline">"Bringing Text from the Physical to the Digital World"</div>
+</div>
+<div class="module-body">
+
+<div class="module-section">
+<div class="section-title">Topics</div>
+<ul class="topic-list">
+<li class="topic-item">Scanned documents</li>
+<li class="topic-item">Handwritten texts</li>
+<li class="topic-item">Historical archives</li>
+<li class="topic-item">Image-to-text processing</li>
+<li class="topic-item">Deep learning OCR models</li>
+</ul>
+</div>
+
+<div class="module-section">
+<div class="section-title">Computing</div>
+<div class="computing-box">OCR implementation with Tesseract, deep learning approaches</div>
+</div>
+
+<div class="module-section">
+<div class="section-title">Potential Collaborators</div>
+<ul class="collaborator-list">
+<li class="collaborator-item">
+<span class="collaborator-name">Joanna Doummar</span>
+<span class="collaborator-dept">— Geology / Hydrology</span>
+<div class="collaborator-reason">Historical hydrology archives digitization</div>
+</li>
+<li class="collaborator-item">
+<span class="collaborator-name">History Department</span>
+<span class="collaborator-dept">— History and Archaeology</span>
+<div class="collaborator-reason">Historical document processing, manuscript digitization</div>
+</li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<div class="module-card">
+<div class="module-header">
+<div class="module-number">Module 5</div>
+<div class="module-title">Music and Speech</div>
+<div class="module-storyline">"Analyzing and Generating Sound with AI"</div>
+</div>
+<div class="module-body">
+
+<div class="module-section">
+<div class="section-title">Topics</div>
+<ul class="topic-list">
+<li class="topic-item">Audio signal processing</li>
+<li class="topic-item">Speech recognition</li>
+<li class="topic-item">Music generation</li>
+<li class="topic-item">Voice synthesis</li>
+</ul>
+</div>
+
+<div class="module-section">
+<div class="section-title">Computing</div>
+<div class="computing-box">Speech-to-text, music analysis with librosa, generative audio models</div>
+</div>
+
+</div>
+</div>
+
+<div class="module-card">
+<div class="module-header">
+<div class="module-number">Module 6</div>
+<div class="module-title">Videos and Fields</div>
+<div class="module-storyline">"Processing Spatial and Temporal Visual Data"</div>
+</div>
+<div class="module-body">
+
+<div class="module-section">
+<div class="section-title">Topics</div>
+<ul class="topic-list">
+<li class="topic-item">Video processing</li>
+<li class="topic-item">Spatial field data</li>
+<li class="topic-item">3D data representations</li>
+<li class="topic-item">Scientific visualization</li>
+</ul>
+</div>
+
+<div class="module-section">
+<div class="section-title">Computing</div>
+<div class="computing-box">Video analysis with OpenCV, 3D data processing</div>
+</div>
+
+</div>
+</div>
+
+<div class="module-card">
+<div class="module-header">
 <div class="module-number">Module 7</div>
 <div class="module-title">Graph Data Science and Network Analysis</div>
 <div class="module-storyline">"Understanding networks in datapoints"</div>
@@ -946,6 +1072,32 @@ This curriculum introduces students to the foundations of data science through h
 <div class="module-section">
 <div class="section-title">Computing</div>
 <div class="computing-box">Training LLMs (GPT), prompt engineering, RAG</div>
+</div>
+
+</div>
+</div>
+
+<div class="module-card">
+<div class="module-header">
+<div class="module-number">Module 9</div>
+<div class="module-title">GPUs and Model Deployment</div>
+<div class="module-storyline">"Taking AI from Research to Production"</div>
+</div>
+<div class="module-body">
+
+<div class="module-section">
+<div class="section-title">Topics</div>
+<ul class="topic-list">
+<li class="topic-item">Large-scale datasets for training</li>
+<li class="topic-item">Foundation models</li>
+<li class="topic-item">Model optimization</li>
+<li class="topic-item">GPU parallelization</li>
+</ul>
+</div>
+
+<div class="module-section">
+<div class="section-title">Computing</div>
+<div class="computing-box">Fine-tuning models with APIs, GPU programming basics, model serving</div>
 </div>
 
 </div>

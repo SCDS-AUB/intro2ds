@@ -120,15 +120,6 @@ See the [Syllabus](/intro2ds/syllabus/) for detailed module-by-module collaborat
 </div>
 </li>
 
-<li class="researcher-item">
-<div class="researcher-name">Julia El-Zini</div>
-<div class="researcher-modules">Modules: Deep Learning</div>
-<div class="researcher-expertise">Deep learning for medical imaging, transfer learning</div>
-<div class="pub-list">
-<div class="pub-item">"A Progressive and Cross-Domain Deep Transfer Learning Framework for Wrist Fracture Detection" (2021)</div>
-</div>
-</li>
-
 </ul>
 </div>
 
