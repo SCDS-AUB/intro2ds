@@ -9,84 +9,109 @@ import re
 from collections import defaultdict
 from pathlib import Path
 
-# Module definitions with search keywords (ordered by priority)
+# Departments to deprioritize (medical/clinical - still include but don't dominate)
+MEDICAL_DEPTS = {
+    'internal medicine', 'surgery', 'pediatrics', 'anesthesiology', 'ophthalmology',
+    'obstetrics', 'gynecology', 'dermatology', 'cardiology', 'oncology', 'radiology',
+    'pathology', 'emergency medicine', 'family medicine', 'otolaryngology', 'urology',
+    'gastroenterology', 'nephrology', 'neurology', 'psychiatry', 'hematology'
+}
+
+# Departments to prioritize for technical/computational modules
+TECHNICAL_DEPTS = {
+    'computer science', 'electrical', 'mechanical engineering', 'industrial engineering',
+    'mathematics', 'physics', 'statistics', 'biomedical engineering'
+}
+
+# Departments to prioritize for social sciences/humanities
+SOCIAL_HUMANITIES_DEPTS = {
+    'history', 'philosophy', 'sociology', 'psychology', 'economics', 'political',
+    'anthropology', 'archaeology', 'education', 'english', 'arabic', 'design',
+    'architecture', 'art', 'communications', 'media', 'public policy', 'business'
+}
+
+# Module definitions with search keywords
 MODULES = {
-    "Module 1: Data Science & Systems Thinking": {
+    "1": {
+        "name": "Introduction to Data Science and Systems Thinking",
         "keywords": ["data science", "big data", "data analytics", "information systems",
-                     "data collection", "database", "data management"],
-        "departments": []
+                     "data collection", "database", "data management", "digital", "computational"],
+        "prefer_depts": ["history", "computer science", "philosophy", "sociology"]
     },
-    "Module 2: Data Visualization": {
+    "2": {
+        "name": "Data Structures and Data Visualization",
         "keywords": ["visualization", "visual", "graphics", "mapping", "GIS", "geographic",
-                     "network visualization", "infographic", "chart", "plot"],
-        "departments": []
+                     "network visualization", "infographic", "data representation", "design"],
+        "prefer_depts": ["design", "geography", "biology", "computer science", "architecture"]
     },
-    "Module 3: Statistical Thinking": {
+    "3": {
+        "name": "Statistical Thinking",
         "keywords": ["statistics", "statistical", "probability", "inference", "correlation",
-                     "regression", "hypothesis", "bayesian", "sampling", "confidence interval"],
-        "departments": []
+                     "regression", "hypothesis", "bayesian", "sampling", "survey", "quantitative"],
+        "prefer_depts": ["statistics", "economics", "sociology", "psychology", "business", "epidemiology"]
     },
-    "Module 4: Optimization & ML Intro": {
+    "4": {
+        "name": "Optimization and Introduction to Machine Learning",
         "keywords": ["optimization", "linear programming", "gradient", "machine learning",
-                     "model fitting", "objective function", "constraint", "minimize", "maximize"],
-        "departments": []
+                     "model fitting", "objective function", "constraint", "minimize", "maximize",
+                     "operations research", "scheduling"],
+        "prefer_depts": ["industrial engineering", "mechanical engineering", "computer science", "business"]
     },
-    "Module 5: Clustering & Dimensionality Reduction": {
+    "5": {
+        "name": "Unsupervised Learning (Clustering and Dimensionality Reduction)",
         "keywords": ["clustering", "cluster analysis", "k-means", "PCA", "dimensionality reduction",
-                     "classification", "segmentation", "pattern recognition", "unsupervised"],
-        "departments": []
+                     "segmentation", "pattern recognition", "unsupervised", "grouping", "taxonomy"],
+        "prefer_depts": ["computer science", "biology", "sociology", "marketing", "genetics"]
     },
-    "Module 6: Language (NLP)": {
+    "6": {
+        "name": "Language (NLP)",
         "keywords": ["natural language", "NLP", "text mining", "sentiment analysis", "arabic",
-                     "language model", "text classification", "tokenization", "word embedding",
-                     "transformer", "BERT", "GPT"],
-        "departments": []
+                     "language model", "text classification", "linguistics", "corpus", "translation",
+                     "computational linguistics"],
+        "prefer_depts": ["computer science", "arabic", "english", "linguistics", "history", "psychology"]
     },
-    "Module 7: Vision (Computer Vision)": {
+    "7": {
+        "name": "Vision (Computer Vision)",
         "keywords": ["computer vision", "image processing", "image analysis", "object detection",
                      "image classification", "CNN", "convolutional", "visual recognition",
-                     "deep learning", "neural network"],
-        "departments": []
+                     "deep learning", "neural network", "pattern recognition"],
+        "prefer_depts": ["computer science", "electrical", "mechanical engineering", "biology"]
     },
-    "Module 8: Audio & Speech": {
+    "8": {
+        "name": "Audio and Speech",
         "keywords": ["audio", "speech", "signal processing", "acoustic", "sound", "voice",
-                     "spectral", "fourier", "frequency analysis", "speech recognition"],
-        "departments": []
+                     "spectral", "fourier", "frequency", "speech recognition", "music"],
+        "prefer_depts": ["electrical", "computer science", "music", "communications", "biomedical"]
     },
-    "Module 9: Time-Series & Forecasting": {
+    "9": {
+        "name": "Time-Series Data and Forecasting",
         "keywords": ["time series", "forecasting", "temporal", "prediction", "sensor",
-                     "monitoring", "trend analysis", "seasonality", "ARIMA", "stochastic"],
-        "departments": []
+                     "monitoring", "trend", "seasonality", "dynamics", "longitudinal"],
+        "prefer_depts": ["economics", "physics", "environmental", "mechanical engineering", "agriculture"]
     },
-    "Module 10: Regression & Classification": {
+    "10": {
+        "name": "Learning Functions: Regression and Classification",
         "keywords": ["regression", "classification", "prediction", "supervised learning",
-                     "logistic regression", "decision tree", "random forest", "feature"],
-        "departments": []
+                     "logistic regression", "decision tree", "feature engineering", "model"],
+        "prefer_depts": ["computer science", "economics", "psychology", "sociology", "epidemiology"]
     },
-    "Module 11: Deep Learning": {
-        "keywords": ["deep learning", "neural network", "transformer", "attention mechanism",
-                     "foundation model", "transfer learning", "fine-tuning"],
-        "departments": []
+    "11": {
+        "name": "Deep Learning for Vision and Language",
+        "keywords": ["deep learning", "neural network", "transformer", "attention",
+                     "foundation model", "transfer learning", "fine-tuning", "GPT", "BERT"],
+        "prefer_depts": ["computer science", "electrical", "design"]
     },
-    "Module 12: Ethics & Bias": {
-        "keywords": ["ethics", "ethical", "bias", "fairness", "privacy", "responsible AI",
-                     "algorithmic bias", "discrimination", "transparency", "accountability"],
-        "departments": []
+    "12": {
+        "name": "Machine Learning in Society (Ethics and Impact)",
+        "keywords": ["ethics", "ethical", "bias", "fairness", "privacy", "responsible",
+                     "discrimination", "transparency", "accountability", "social impact", "policy"],
+        "prefer_depts": ["philosophy", "sociology", "psychology", "public policy", "law", "business"]
     },
-    "Module (202) 2: Big Data & Cloud": {
-        "keywords": ["big data", "cloud computing", "distributed", "spark", "hadoop",
-                     "scalability", "parallel processing", "database", "SQL"],
-        "departments": []
-    },
-    "Module (202) 4: OCR & Documents": {
-        "keywords": ["OCR", "optical character recognition", "document", "handwriting",
-                     "text extraction", "archive", "digitization", "manuscript"],
-        "departments": []
-    },
-    "Module (202) 7: Networks & Graphs": {
-        "keywords": ["network analysis", "graph", "social network", "citation", "centrality",
-                     "community detection", "network science", "connectivity"],
-        "departments": []
+    "13": {
+        "name": "Project – Application and Integration",
+        "keywords": ["project", "application", "integration", "real-world", "case study",
+                     "industry", "deployment", "product"],
+        "prefer_depts": ["design", "business", "computer science"]
     },
 }
 
@@ -113,6 +138,22 @@ def filter_recent(articles, min_year=2021):
         except (ValueError, TypeError):
             continue
     return recent
+
+def is_medical_dept(dept_str):
+    """Check if department string indicates primarily medical affiliation."""
+    if not dept_str:
+        return False
+    dept_lower = dept_str.lower()
+    medical_count = sum(1 for m in MEDICAL_DEPTS if m in dept_lower)
+    total_depts = len(dept_str.split('||'))
+    return medical_count > total_depts * 0.5
+
+def is_preferred_dept(dept_str, prefer_list):
+    """Check if department matches preferred departments for module."""
+    if not dept_str:
+        return False
+    dept_lower = dept_str.lower()
+    return any(p in dept_lower for p in prefer_list)
 
 def search_relevance(article, keywords):
     """Calculate relevance score based on keyword matches."""
@@ -142,129 +183,102 @@ def parse_authors(authors_str):
         return []
     return [a.strip() for a in authors_str.split('||') if a.strip()]
 
+def get_primary_dept(dept_str):
+    """Extract primary department from concatenated string."""
+    if not dept_str:
+        return "Unknown"
+    parts = dept_str.split('||')
+    # Return shortest non-empty part (usually most specific)
+    valid = [p.strip() for p in parts if p.strip()]
+    if valid:
+        return min(valid, key=len)
+    return "Unknown"
+
 def find_collaborators(articles, modules):
     """Find potential collaborators for each module."""
     results = {}
 
-    for module_name, module_info in modules.items():
+    for module_id, module_info in modules.items():
         keywords = module_info['keywords']
+        prefer_depts = module_info.get('prefer_depts', [])
 
-        # Track authors and departments
-        author_scores = defaultdict(lambda: {'score': 0, 'articles': [], 'departments': set()})
-        dept_scores = defaultdict(lambda: {'score': 0, 'articles': [], 'authors': set()})
+        # Track authors
+        author_data = defaultdict(lambda: {
+            'score': 0,
+            'articles': [],
+            'departments': set(),
+            'is_medical': False,
+            'is_preferred': False
+        })
 
         for article in articles:
             score, matched = search_relevance(article, keywords)
             if score > 0:
                 authors = parse_authors(article.get('authors', ''))
                 dept = article.get('department', 'Unknown')
-                faculty = article.get('faculty', 'Unknown')
+                primary_dept = get_primary_dept(dept)
 
                 for author in authors:
-                    author_scores[author]['score'] += score
-                    author_scores[author]['articles'].append({
+                    author_data[author]['score'] += score
+                    author_data[author]['articles'].append({
                         'title': article.get('title', ''),
                         'year': article.get('date_issued', ''),
                         'matched_keywords': matched,
-                        'score': score
+                        'score': score,
+                        'department': primary_dept
                     })
-                    author_scores[author]['departments'].add(dept)
+                    author_data[author]['departments'].add(primary_dept)
 
-                dept_scores[dept]['score'] += score
-                dept_scores[dept]['articles'].append(article.get('title', ''))
-                for author in authors:
-                    dept_scores[dept]['authors'].add(author)
+                    if is_medical_dept(dept):
+                        author_data[author]['is_medical'] = True
+                    if is_preferred_dept(dept, prefer_depts):
+                        author_data[author]['is_preferred'] = True
 
-        # Sort and get top collaborators
+        # Sort with preference for non-medical and preferred departments
+        def sort_key(item):
+            name, data = item
+            # Boost preferred departments, penalize medical-only
+            dept_bonus = 10 if data['is_preferred'] else 0
+            medical_penalty = -5 if data['is_medical'] and not data['is_preferred'] else 0
+            return data['score'] + dept_bonus + medical_penalty
+
         sorted_authors = sorted(
-            author_scores.items(),
-            key=lambda x: x[1]['score'],
+            author_data.items(),
+            key=sort_key,
             reverse=True
-        )[:15]  # Top 15 authors per module
+        )
 
-        sorted_depts = sorted(
-            dept_scores.items(),
-            key=lambda x: x[1]['score'],
-            reverse=True
-        )[:10]  # Top 10 departments per module
+        # Select diverse set: max 2 from medical, prioritize others
+        selected = []
+        medical_count = 0
+        for name, data in sorted_authors:
+            if len(selected) >= 8:
+                break
+            if data['is_medical'] and not data['is_preferred']:
+                if medical_count >= 2:
+                    continue
+                medical_count += 1
+            selected.append((name, data))
 
-        results[module_name] = {
-            'top_authors': [
+        results[module_id] = {
+            'name': module_info['name'],
+            'collaborators': [
                 {
                     'name': name,
                     'relevance_score': data['score'],
-                    'num_relevant_articles': len(data['articles']),
                     'departments': list(data['departments']),
-                    'sample_articles': data['articles'][:3]  # Top 3 articles
+                    'articles': sorted(data['articles'], key=lambda x: x['score'], reverse=True)[:3]
                 }
-                for name, data in sorted_authors
-            ],
-            'top_departments': [
-                {
-                    'department': dept,
-                    'relevance_score': data['score'],
-                    'num_articles': len(data['articles']),
-                    'num_authors': len(data['authors']),
-                    'top_authors': list(data['authors'])[:5]
-                }
-                for dept, data in sorted_depts
+                for name, data in selected
             ]
         }
 
     return results
 
-def generate_markdown_report(results, output_path):
-    """Generate a markdown report of collaborators."""
-    lines = ["# Potential Collaborators by Module\n"]
-    lines.append("*Based on AUB ScholarWorks publications (2021-present)*\n\n")
-
-    for module_name, data in results.items():
-        lines.append(f"## {module_name}\n")
-
-        # Top Departments
-        lines.append("### Relevant Departments\n")
-        for dept in data['top_departments'][:5]:
-            lines.append(f"- **{dept['department']}** ({dept['num_articles']} relevant articles)")
-            if dept['top_authors']:
-                authors_str = ', '.join(dept['top_authors'][:3])
-                lines.append(f"  - Key researchers: {authors_str}")
-        lines.append("")
-
-        # Top Authors
-        lines.append("### Key Researchers\n")
-        for author in data['top_authors'][:5]:
-            depts = ', '.join(author['departments'])
-            lines.append(f"- **{author['name']}** ({depts})")
-            lines.append(f"  - {author['num_relevant_articles']} relevant articles, relevance score: {author['relevance_score']}")
-            if author['sample_articles']:
-                sample = author['sample_articles'][0]
-                lines.append(f"  - Sample: \"{sample['title'][:80]}...\" ({sample['year']})")
-        lines.append("\n---\n")
-
-    with open(output_path, 'w', encoding='utf-8') as f:
-        f.write('\n'.join(lines))
-
 def generate_json_output(results, output_path):
     """Save results as JSON for web use."""
-    # Convert sets to lists for JSON serialization
-    json_results = {}
-    for module, data in results.items():
-        json_results[module] = {
-            'top_authors': data['top_authors'],
-            'top_departments': [
-                {
-                    'department': d['department'],
-                    'relevance_score': d['relevance_score'],
-                    'num_articles': d['num_articles'],
-                    'num_authors': d['num_authors'],
-                    'top_authors': d['top_authors']
-                }
-                for d in data['top_departments']
-            ]
-        }
-
     with open(output_path, 'w', encoding='utf-8') as f:
-        json.dump(json_results, f, indent=2, ensure_ascii=False)
+        json.dump(results, f, indent=2, ensure_ascii=False)
 
 def main():
     # Paths
@@ -282,16 +296,9 @@ def main():
     print("Finding collaborators for each module...")
     results = find_collaborators(recent_articles, MODULES)
 
-    # Generate outputs
-    md_path = output_dir / 'collaborators.md'
+    # Generate JSON output
     json_path = output_dir / 'data' / 'collaborators.json'
-
-    # Ensure data directory exists
     (output_dir / 'data').mkdir(exist_ok=True)
-
-    generate_markdown_report(results, md_path)
-    print(f"Markdown report saved to {md_path}")
-
     generate_json_output(results, json_path)
     print(f"JSON data saved to {json_path}")
 
