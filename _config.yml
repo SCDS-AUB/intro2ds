@@ -21,6 +21,17 @@ exclude:
   - scripts/
   - "*.py"
 
+# Navigation
+nav:
+  - title: "Home"
+    url: "/"
+  - title: "Syllabus"
+    url: "/syllabus/"
+  - title: "Lectures"
+    url: "/lectures"
+  - title: "Collaborators"
+    url: "/collaborators/"
+
 # Defaults for lectures
 defaults:
   - scope:
