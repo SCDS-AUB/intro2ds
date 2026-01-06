@@ -4,7 +4,7 @@ Lecture materials for the School of Data Science and Computing at the American U
 
 ## Live Site
 
-Visit: https://scds-aub.github.io/course-materials/
+Visit: https://scds-aub.github.io/intro2ds/
 
 ## Structure
 
@@ -74,4 +74,3 @@ See course coordinator for content contributions.
 ---
 
 School of Data Science and Computing, AUB
-# intro2ds
