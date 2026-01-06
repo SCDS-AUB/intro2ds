@@ -1,0 +1,202 @@
+---
+layout: default
+---
+
+<style>
+.note-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.note-header {
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.note-title {
+    color: var(--primary-color);
+    margin: 0 0 10px 0;
+    font-size: 2.2em;
+    font-weight: 400;
+}
+
+.note-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+.note-content {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+/* Math styling */
+.note-content .MathJax_Display {
+    margin: 1.5em 0;
+    overflow-x: auto;
+}
+
+/* Code styling */
+.note-content pre {
+    background: #0d1117;
+    color: #c9d1d9;
+    border-radius: 6px;
+    padding: 16px;
+    overflow-x: auto;
+    font-size: 14px;
+    font-family: 'SF Mono', 'Monaco', 'Menlo', monospace;
+    line-height: 1.5;
+    margin: 1em 0;
+}
+
+.note-content code {
+    background: #f4f4f4;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'SF Mono', 'Monaco', 'Menlo', monospace;
+}
+
+.note-content pre code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+}
+
+/* Output blocks (plaintext) */
+.note-content .language-plaintext pre,
+.note-content .highlighter-rouge:not(.language-python) pre {
+    background: #f7f7f9;
+    color: #2c3e50;
+    border: 1px solid #e5e5e5;
+}
+
+/* Headers */
+.note-content h1, .note-content h2, .note-content h3 {
+    color: var(--primary-color);
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+}
+
+.note-content h2 {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.3em;
+}
+
+/* Images */
+.note-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.5em auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Tables */
+.note-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+.note-content th, .note-content td {
+    border: 1px solid var(--border-color);
+    padding: 10px 12px;
+    text-align: left;
+}
+
+.note-content th {
+    background: var(--light-bg);
+    font-weight: 600;
+}
+
+/* Blockquotes */
+.note-content blockquote {
+    border-left: 4px solid var(--accent-color);
+    margin: 1.5em 0;
+    padding: 0.5em 1em;
+    background: var(--light-bg);
+}
+
+/* Navigation */
+.note-navigation {
+    margin-top: 3em;
+    padding-top: 1.5em;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.nav-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.nav-link:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+/* Colab badge */
+.colab-badge {
+    margin-top: 15px;
+}
+
+.colab-badge img {
+    box-shadow: none;
+    margin: 0;
+    display: inline;
+}
+
+@media (max-width: 768px) {
+    .note-title { font-size: 1.8em; }
+    .note-meta { flex-direction: column; gap: 8px; }
+}
+</style>
+
+<div class="note-container">
+    <div class="note-header">
+        <h1 class="note-title">{{ page.title }}</h1>
+        <div class="note-meta">
+            {% if page.module %}
+            <span>Module: {{ page.module }}</span>
+            {% endif %}
+            {% if page.category %}
+            <span>{{ page.category }}</span>
+            {% endif %}
+            {% if page.date %}
+            <span>{{ page.date | date: "%B %d, %Y" }}</span>
+            {% endif %}
+        </div>
+        {% if page.colab_url and page.colab_url != '' %}
+        <div class="colab-badge">
+            <a href="{{ page.colab_url }}" target="_blank" rel="noopener">
+                <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="note-content">
+        {{ content }}
+    </div>
+
+    <div class="note-navigation">
+        <a href="{{ '/lectures.html' | relative_url }}" class="nav-link">← Back to Lectures</a>
+        {% if page.notebook_source %}
+        <a href="{{ page.notebook_source }}" class="nav-link" download>Download Notebook</a>
+        {% endif %}
+    </div>
+</div>

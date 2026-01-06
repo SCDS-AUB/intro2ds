@@ -1,4 +1,13 @@
-# Lecture 1: How Machines See - Traditional Computer Vision
+---
+title: "Lecture 1: How Machines See - Traditional Computer Vision"
+layout: note
+module: "Vision"
+category: "Lecture"
+notebook_source: "lecture.ipynb"
+colab_url: ""
+permalink: /lectures/vision/how-machines-see-1/
+---
+
 
 **Course**: Introduction to Data Science and Computing  
 **Instructor**: Prof. Joseph Bakarji  
@@ -53,6 +62,113 @@ plt.rcParams['font.size'] = 11
 print("Libraries loaded successfully!")
 ```
 
+    
+    A module that was compiled using NumPy 1.x cannot be run in
+    NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+    versions of NumPy, modules must be compiled with NumPy 2.0.
+    Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+    
+    If you are a user of the module, the easiest solution will be to
+    downgrade to 'numpy<2' or try to upgrade the affected module.
+    We expect that some modules will need time to support NumPy 2.
+    
+    Traceback (most recent call last):  File "/Users/josephbakarji/miniconda3/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+        return _run_code(code, main_globals, None,
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/runpy.py", line 86, in _run_code
+        exec(code, run_globals)
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/ipykernel_launcher.py", line 17, in <module>
+        app.launch_new_instance()
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/traitlets/config/application.py", line 1075, in launch_instance
+        app.start()
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/ipykernel/kernelapp.py", line 725, in start
+        self.io_loop.start()
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/tornado/platform/asyncio.py", line 215, in start
+        self.asyncio_loop.run_forever()
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+        self._run_once()
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/asyncio/base_events.py", line 1906, in _run_once
+        handle._run()
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/asyncio/events.py", line 80, in _run
+        self._context.run(self._callback, *self._args)
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/ipykernel/kernelbase.py", line 513, in dispatch_queue
+        await self.process_one()
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/ipykernel/kernelbase.py", line 502, in process_one
+        await dispatch(*args)
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/ipykernel/kernelbase.py", line 409, in dispatch_shell
+        await result
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/ipykernel/kernelbase.py", line 729, in execute_request
+        reply_content = await reply_content
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/ipykernel/ipkernel.py", line 422, in do_execute
+        res = shell.run_cell(
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/ipykernel/zmqshell.py", line 540, in run_cell
+        return super().run_cell(*args, **kwargs)
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/IPython/core/interactiveshell.py", line 3075, in run_cell
+        result = self._run_cell(
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/IPython/core/interactiveshell.py", line 3130, in _run_cell
+        result = runner(coro)
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/IPython/core/async_helpers.py", line 128, in _pseudo_sync_runner
+        coro.send(None)
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/IPython/core/interactiveshell.py", line 3334, in run_cell_async
+        has_raised = await self.run_ast_nodes(code_ast.body, cell_name,
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/IPython/core/interactiveshell.py", line 3517, in run_ast_nodes
+        if await self.run_code(code, result, async_=asy):
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/IPython/core/interactiveshell.py", line 3577, in run_code
+        exec(code_obj, self.user_global_ns, self.user_ns)
+      File "/var/folders/q4/_twpfpf54f3f6s17s74p67tc0000gp/T/ipykernel_59219/411157502.py", line 8, in <module>
+        from sklearn import datasets
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/sklearn/__init__.py", line 73, in <module>
+        from .base import clone  # noqa: E402
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/sklearn/base.py", line 19, in <module>
+        from .utils._metadata_requests import _MetadataRequester, _routing_enabled
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/sklearn/utils/__init__.py", line 9, in <module>
+        from ._chunking import gen_batches, gen_even_slices
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/sklearn/utils/_chunking.py", line 11, in <module>
+        from ._param_validation import Interval, validate_params
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 17, in <module>
+        from .validation import _is_arraylike_not_scalar
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/sklearn/utils/validation.py", line 21, in <module>
+        from ..utils._array_api import _asarray_with_order, _is_numpy_namespace, get_namespace
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/sklearn/utils/_array_api.py", line 20, in <module>
+        from .fixes import parse_version
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/sklearn/utils/fixes.py", line 20, in <module>
+        import pandas as pd
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/pandas/__init__.py", line 49, in <module>
+        from pandas.core.api import (
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/pandas/core/api.py", line 28, in <module>
+        from pandas.core.arrays import Categorical
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/pandas/core/arrays/__init__.py", line 1, in <module>
+        from pandas.core.arrays.arrow import ArrowExtensionArray
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/pandas/core/arrays/arrow/__init__.py", line 5, in <module>
+        from pandas.core.arrays.arrow.array import ArrowExtensionArray
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/pandas/core/arrays/arrow/array.py", line 52, in <module>
+        from pandas.core import (
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/pandas/core/ops/__init__.py", line 8, in <module>
+        from pandas.core.ops.array_ops import (
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/pandas/core/ops/array_ops.py", line 56, in <module>
+        from pandas.core.computation import expressions
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/pandas/core/computation/expressions.py", line 21, in <module>
+        from pandas.core.computation.check import NUMEXPR_INSTALLED
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/pandas/core/computation/check.py", line 5, in <module>
+        ne = import_optional_dependency("numexpr", errors="warn")
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/pandas/compat/_optional.py", line 135, in import_optional_dependency
+        module = importlib.import_module(name)
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/numexpr/__init__.py", line 24, in <module>
+        from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+
+
+
+    ---------------------------------------------------------------------------
+
+    AttributeError                            Traceback (most recent call last)
+
+    AttributeError: _ARRAY_API not found
+
+
+    Libraries loaded successfully!
+
+
 ### 1.1 Loading Student Handwritten Digits
 
 You submitted handwritten digits on grid paper. Our TAs segmented them into individual images.
@@ -83,6 +199,17 @@ plt.suptitle("Student Handwritten Digits (Sample)", fontsize=14, fontweight='bol
 plt.tight_layout()
 plt.show()
 ```
+
+    Dataset loaded: 1797 images
+    Image shape: (8, 8)
+    Labels: [0 1 2 3 4 5 6 7 8 9]
+
+
+
+    
+![png](lecture/output_4_1.png)
+    
+
 
 ### 1.2 Zooming In: What Are Pixels?
 
@@ -137,6 +264,17 @@ print("\n🔍 Key Insight: Images are just 2D arrays of numbers!")
 print(f"Each pixel stores a value representing brightness.")
 ```
 
+
+    
+![png](lecture/output_6_0.png)
+    
+
+
+    
+    🔍 Key Insight: Images are just 2D arrays of numbers!
+    Each pixel stores a value representing brightness.
+
+
 ### 1.3 Understanding Pixel Values: Why 255?
 
 **Question**: Why do we often see pixel values between 0 and 255?
@@ -173,6 +311,19 @@ print(f"  0 (Black):   {bin(0):>10s}")
 print(f"  128 (Gray):  {bin(128):>10s}")
 print(f"  255 (White): {bin(255):>10s}")
 ```
+
+
+    
+![png](lecture/output_8_0.png)
+    
+
+
+    
+    💡 Binary Representation:
+      0 (Black):          0b0
+      128 (Gray):  0b10000000
+      255 (White): 0b11111111
+
 
 ### 1.4 Color Images: RGB Channels
 
@@ -220,6 +371,20 @@ print(f"  Red + Blue = Magenta")
 print(f"  Green + Blue = Cyan")
 print(f"  Red + Green + Blue = White")
 ```
+
+
+    
+![png](lecture/output_10_0.png)
+    
+
+
+    
+    🎨 Color mixing works like mixing light:
+      Red + Green = Yellow
+      Red + Blue = Magenta
+      Green + Blue = Cyan
+      Red + Green + Blue = White
+
 
 ---
 
@@ -290,6 +455,17 @@ print("\n📊 Observation: Digit '1' tends to have a sharper, taller spike in co
 print("   But is this enough to reliably distinguish it from other digits?")
 ```
 
+
+    
+![png](lecture/output_13_0.png)
+    
+
+
+    
+    📊 Observation: Digit '1' tends to have a sharper, taller spike in column sums.
+       But is this enough to reliably distinguish it from other digits?
+
+
 ### 2.2 Implementing a Simple "Spike Detector"
 
 Let's implement a threshold-based detector:
@@ -341,6 +517,25 @@ if failures:
 
 print("\n🤔 Reflection: Hand-coded rules are fragile. Different handwriting breaks them.")
 ```
+
+    
+    ✅ Spike Detector Accuracy: 22.0%
+       Correct: 22/100
+    
+    ❌ Number of failures: 78
+    
+    Let's examine some failure cases...
+
+
+
+    
+![png](lecture/output_15_1.png)
+    
+
+
+    
+    🤔 Reflection: Hand-coded rules are fragile. Different handwriting breaks them.
+
 
 ### 2.3 Edge Detection: A More Sophisticated Approach
 
@@ -396,6 +591,16 @@ plt.show()
 print("\n🔍 Edge detection highlights shape boundaries, removing uniform regions.")
 ```
 
+
+    
+![png](lecture/output_17_0.png)
+    
+
+
+    
+    🔍 Edge detection highlights shape boundaries, removing uniform regions.
+
+
 ---
 
 ## Part 3: Traditional Computer Vision Pipeline
@@ -426,6 +631,11 @@ print(f"Pixel value range: [{X.min():.2f}, {X.max():.2f}]")
 print(f"Number of classes: {len(np.unique(y))}")
 ```
 
+    Dataset shape: (1797, 8, 8)
+    Pixel value range: [0.00, 1.00]
+    Number of classes: 10
+
+
 ### 3.2 Feature Extraction: Flattening
 
 Simplest feature: Use raw pixel values as features.
@@ -444,6 +654,12 @@ print(f"Flattened shape: {X_flat.shape}")
 print(f"\nEach image is now a {X_flat.shape[1]}-dimensional vector.")
 ```
 
+    Original shape: (1797, 8, 8)
+    Flattened shape: (1797, 64)
+    
+    Each image is now a 64-dimensional vector.
+
+
 ### 3.3 Train/Test Split
 
 
@@ -457,6 +673,10 @@ X_train, X_test, y_train, y_test = train_test_split(
 print(f"Training set: {X_train.shape[0]} images")
 print(f"Test set: {X_test.shape[0]} images")
 ```
+
+    Training set: 1257 images
+    Test set: 540 images
+
 
 ### 3.4 Train a Support Vector Machine (SVM)
 
@@ -486,6 +706,30 @@ print(f"\n✅ Test Accuracy: {accuracy*100:.2f}%")
 print("\n📊 Classification Report:")
 print(classification_report(y_test, y_pred))
 ```
+
+    Training SVM...
+    
+    ✅ Test Accuracy: 98.89%
+    
+    📊 Classification Report:
+                  precision    recall  f1-score   support
+    
+               0       1.00      0.98      0.99        54
+               1       0.96      1.00      0.98        55
+               2       1.00      1.00      1.00        53
+               3       1.00      1.00      1.00        55
+               4       0.98      0.98      0.98        54
+               5       1.00      0.98      0.99        55
+               6       1.00      1.00      1.00        54
+               7       0.98      1.00      0.99        54
+               8       0.98      0.96      0.97        52
+               9       0.98      0.98      0.98        54
+    
+        accuracy                           0.99       540
+       macro avg       0.99      0.99      0.99       540
+    weighted avg       0.99      0.99      0.99       540
+    
+
 
 ### 3.5 Confusion Matrix: Where Does It Fail?
 
@@ -529,6 +773,18 @@ print(f"   Most common confusion: Digit {max_confusion[0]} predicted as {max_con
 print(f"   This happened {cm_nodiag[max_confusion]} times.")
 ```
 
+
+    
+![png](lecture/output_28_0.png)
+    
+
+
+    
+    🤔 Which digits are most often confused?
+       Most common confusion: Digit 8 predicted as 1
+       This happened 2 times.
+
+
 ### 3.6 Analyzing Specific Failures
 
 **Key practice**: Always look at specific failure cases.
@@ -569,6 +825,23 @@ print("   - Are some of these ambiguous even for humans?")
 print("   - What features would help distinguish these cases?")
 print("   - Is 100% accuracy achievable? Should it be the goal?")
 ```
+
+    
+    ❌ Misclassified: 6 out of 540 (1.1%)
+
+
+
+    
+![png](lecture/output_30_1.png)
+    
+
+
+    
+    💡 Reflection Questions:
+       - Are some of these ambiguous even for humans?
+       - What features would help distinguish these cases?
+       - Is 100% accuracy achievable? Should it be the goal?
+
 
 ---
 

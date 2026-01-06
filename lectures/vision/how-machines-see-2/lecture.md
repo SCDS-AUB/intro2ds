@@ -1,4 +1,13 @@
-# Lecture 2: How Machines See - Modern Machine Learning
+---
+title: "Lecture 2: How Machines See - Modern Machine Learning"
+layout: note
+module: "Vision"
+category: "Lecture"
+notebook_source: "lecture.ipynb"
+colab_url: ""
+permalink: /lectures/vision/how-machines-see-2/
+---
+
 
 **Course**: Introduction to Data Science and Computing  
 **Instructor**: Prof. Joseph Bakarji  
@@ -57,6 +66,114 @@ print(f"Using device: {device}")
 print("Libraries loaded successfully!")
 ```
 
+    
+    A module that was compiled using NumPy 1.x cannot be run in
+    NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+    versions of NumPy, modules must be compiled with NumPy 2.0.
+    Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+    
+    If you are a user of the module, the easiest solution will be to
+    downgrade to 'numpy<2' or try to upgrade the affected module.
+    We expect that some modules will need time to support NumPy 2.
+    
+    Traceback (most recent call last):  File "/Users/josephbakarji/miniconda3/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+        return _run_code(code, main_globals, None,
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/runpy.py", line 86, in _run_code
+        exec(code, run_globals)
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/ipykernel_launcher.py", line 17, in <module>
+        app.launch_new_instance()
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/traitlets/config/application.py", line 1075, in launch_instance
+        app.start()
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/ipykernel/kernelapp.py", line 725, in start
+        self.io_loop.start()
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/tornado/platform/asyncio.py", line 215, in start
+        self.asyncio_loop.run_forever()
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+        self._run_once()
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/asyncio/base_events.py", line 1906, in _run_once
+        handle._run()
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/asyncio/events.py", line 80, in _run
+        self._context.run(self._callback, *self._args)
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/ipykernel/kernelbase.py", line 513, in dispatch_queue
+        await self.process_one()
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/ipykernel/kernelbase.py", line 502, in process_one
+        await dispatch(*args)
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/ipykernel/kernelbase.py", line 409, in dispatch_shell
+        await result
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/ipykernel/kernelbase.py", line 729, in execute_request
+        reply_content = await reply_content
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/ipykernel/ipkernel.py", line 422, in do_execute
+        res = shell.run_cell(
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/ipykernel/zmqshell.py", line 540, in run_cell
+        return super().run_cell(*args, **kwargs)
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/IPython/core/interactiveshell.py", line 3075, in run_cell
+        result = self._run_cell(
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/IPython/core/interactiveshell.py", line 3130, in _run_cell
+        result = runner(coro)
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/IPython/core/async_helpers.py", line 128, in _pseudo_sync_runner
+        coro.send(None)
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/IPython/core/interactiveshell.py", line 3334, in run_cell_async
+        has_raised = await self.run_ast_nodes(code_ast.body, cell_name,
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/IPython/core/interactiveshell.py", line 3517, in run_ast_nodes
+        if await self.run_code(code, result, async_=asy):
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/IPython/core/interactiveshell.py", line 3577, in run_code
+        exec(code_obj, self.user_global_ns, self.user_ns)
+      File "/var/folders/q4/_twpfpf54f3f6s17s74p67tc0000gp/T/ipykernel_59306/1111281977.py", line 5, in <module>
+        from sklearn import datasets
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/sklearn/__init__.py", line 73, in <module>
+        from .base import clone  # noqa: E402
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/sklearn/base.py", line 19, in <module>
+        from .utils._metadata_requests import _MetadataRequester, _routing_enabled
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/sklearn/utils/__init__.py", line 9, in <module>
+        from ._chunking import gen_batches, gen_even_slices
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/sklearn/utils/_chunking.py", line 11, in <module>
+        from ._param_validation import Interval, validate_params
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 17, in <module>
+        from .validation import _is_arraylike_not_scalar
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/sklearn/utils/validation.py", line 21, in <module>
+        from ..utils._array_api import _asarray_with_order, _is_numpy_namespace, get_namespace
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/sklearn/utils/_array_api.py", line 20, in <module>
+        from .fixes import parse_version
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/sklearn/utils/fixes.py", line 20, in <module>
+        import pandas as pd
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/pandas/__init__.py", line 49, in <module>
+        from pandas.core.api import (
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/pandas/core/api.py", line 28, in <module>
+        from pandas.core.arrays import Categorical
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/pandas/core/arrays/__init__.py", line 1, in <module>
+        from pandas.core.arrays.arrow import ArrowExtensionArray
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/pandas/core/arrays/arrow/__init__.py", line 5, in <module>
+        from pandas.core.arrays.arrow.array import ArrowExtensionArray
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/pandas/core/arrays/arrow/array.py", line 52, in <module>
+        from pandas.core import (
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/pandas/core/ops/__init__.py", line 8, in <module>
+        from pandas.core.ops.array_ops import (
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/pandas/core/ops/array_ops.py", line 56, in <module>
+        from pandas.core.computation import expressions
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/pandas/core/computation/expressions.py", line 21, in <module>
+        from pandas.core.computation.check import NUMEXPR_INSTALLED
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/pandas/core/computation/check.py", line 5, in <module>
+        ne = import_optional_dependency("numexpr", errors="warn")
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/pandas/compat/_optional.py", line 135, in import_optional_dependency
+        module = importlib.import_module(name)
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "/Users/josephbakarji/miniconda3/lib/python3.10/site-packages/numexpr/__init__.py", line 24, in <module>
+        from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+
+
+
+    ---------------------------------------------------------------------------
+
+    AttributeError                            Traceback (most recent call last)
+
+    AttributeError: _ARRAY_API not found
+
+
+    Using device: cpu
+    Libraries loaded successfully!
+
+
 ---
 
 ## Part 1: Dimensionality Reduction
@@ -84,6 +201,10 @@ images = digits.images
 print(f"Dataset: {X.shape[0]} images, {X.shape[1]} features (pixels)")
 print(f"Goal: Reduce from {X.shape[1]} dimensions to 2 dimensions")
 ```
+
+    Dataset: 1797 images, 64 features (pixels)
+    Goal: Reduce from 64 dimensions to 2 dimensions
+
 
 ### 1.1 Principal Component Analysis (PCA)
 
@@ -122,6 +243,19 @@ print(f"   - PC1 explains {pca.explained_variance_ratio_[0]*100:.1f}% of varianc
 print(f"   - PC2 explains {pca.explained_variance_ratio_[1]*100:.1f}% of variance")
 ```
 
+
+    
+![png](lecture/output_5_0.png)
+    
+
+
+    
+    ✅ PCA projection complete!
+       - Explained variance (2 components): 28.5%
+       - PC1 explains 14.9% of variance
+       - PC2 explains 13.6% of variance
+
+
 #### Understanding PCA Components
 
 What do the principal components actually look like?
@@ -147,6 +281,17 @@ plt.show()
 print("\n🔍 These are the 'basis patterns' PCA discovered.")
 print("   Every digit can be approximated as a weighted combination of these.")
 ```
+
+
+    
+![png](lecture/output_7_0.png)
+    
+
+
+    
+    🔍 These are the 'basis patterns' PCA discovered.
+       Every digit can be approximated as a weighted combination of these.
+
 
 #### Classification in PCA Space
 
@@ -179,6 +324,14 @@ print(f"   - Original 64D space: {acc_orig*100:.2f}%")
 print(f"   - PCA 2D space: {acc_pca*100:.2f}%")
 print(f"\n💡 We reduced dimensionality by 97% but only lost {(acc_orig-acc_pca)*100:.1f}% accuracy!")
 ```
+
+    
+    📊 Classification Accuracy:
+       - Original 64D space: 96.67%
+       - PCA 2D space: 61.85%
+    
+    💡 We reduced dimensionality by 97% but only lost 34.8% accuracy!
+
 
 ### 1.2 t-SNE: Non-Linear Dimensionality Reduction
 
@@ -235,6 +388,20 @@ plt.show()
 print("\n🔍 Observation: t-SNE creates much tighter, more separated clusters!")
 print("   This is because it can capture non-linear manifold structure.")
 ```
+
+    Running t-SNE (this may take a minute)...
+
+
+
+    
+![png](lecture/output_11_1.png)
+    
+
+
+    
+    🔍 Observation: t-SNE creates much tighter, more separated clusters!
+       This is because it can capture non-linear manifold structure.
+
 
 ---
 
@@ -305,6 +472,29 @@ print(autoencoder)
 print(f"\nTotal parameters: {sum(p.numel() for p in autoencoder.parameters()):,}")
 ```
 
+    
+    🏗️ Autoencoder Architecture:
+    Autoencoder(
+      (encoder): Sequential(
+        (0): Linear(in_features=64, out_features=32, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=32, out_features=16, bias=True)
+        (3): ReLU()
+        (4): Linear(in_features=16, out_features=2, bias=True)
+      )
+      (decoder): Sequential(
+        (0): Linear(in_features=2, out_features=16, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=16, out_features=32, bias=True)
+        (3): ReLU()
+        (4): Linear(in_features=32, out_features=64, bias=True)
+        (5): Sigmoid()
+      )
+    )
+    
+    Total parameters: 5,346
+
+
 ### 2.2 Training the Autoencoder
 
 
@@ -365,6 +555,23 @@ plt.tight_layout()
 plt.show()
 ```
 
+    
+    🎯 Training autoencoder...
+    Epoch [10/50], Loss: 0.071815
+    Epoch [20/50], Loss: 0.060159
+    Epoch [30/50], Loss: 0.052960
+    Epoch [40/50], Loss: 0.049561
+    Epoch [50/50], Loss: 0.048478
+    
+    ✅ Training complete!
+
+
+
+    
+![png](lecture/output_16_1.png)
+    
+
+
 ### 2.3 Visualizing the Learned Latent Space
 
 
@@ -403,6 +610,19 @@ print("   - Autoencoder: Non-linear, learned from reconstruction")
 print("   - t-SNE: Non-linear, preserves local neighborhoods")
 ```
 
+
+    
+![png](lecture/output_18_0.png)
+    
+
+
+    
+    💡 Key Insight: All three methods project to 2D, but structure differs!
+       - PCA: Linear, preserves global variance
+       - Autoencoder: Non-linear, learned from reconstruction
+       - t-SNE: Non-linear, preserves local neighborhoods
+
+
 ### 2.4 Reconstruction Quality
 
 
@@ -439,6 +659,17 @@ mse = np.mean((X_test - X_test_recon)**2)
 print(f"\n📏 Reconstruction MSE: {mse:.6f}")
 print("   Despite compressing 64D → 2D, reconstruction is quite good!")
 ```
+
+
+    
+![png](lecture/output_20_0.png)
+    
+
+
+    
+    📏 Reconstruction MSE: 0.049532
+       Despite compressing 64D → 2D, reconstruction is quite good!
+
 
 ### 2.5 Interpolation in Latent Space
 
@@ -484,6 +715,17 @@ plt.show()
 print("\n✨ Magic! We can 'morph' between digits by moving through latent space.")
 print("   This shows the latent space captures semantic structure.")
 ```
+
+
+    
+![png](lecture/output_22_0.png)
+    
+
+
+    
+    ✨ Magic! We can 'morph' between digits by moving through latent space.
+       This shows the latent space captures semantic structure.
+
 
 ---
 
@@ -557,6 +799,26 @@ print("   Conv1: Detects edges and simple patterns")
 print("   Conv2: Combines edges into textures and shapes")
 print("   Dense: Classifies based on learned features")
 ```
+
+    Loading MNIST dataset (this may take a moment)...
+    
+    🏗️ Simple CNN Architecture:
+    SimpleCNN(
+      (conv1): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (conv2): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (fc1): Linear(in_features=128, out_features=64, bias=True)
+      (fc2): Linear(in_features=64, out_features=10, bias=True)
+      (relu): ReLU()
+    )
+    
+    Total parameters: 13,706
+    
+    💡 This network learns features hierarchically:
+       Conv1: Detects edges and simple patterns
+       Conv2: Combines edges into textures and shapes
+       Dense: Classifies based on learned features
+
 
 ### 3.2 Quick Training Demo (Optional)
 
