@@ -1149,3 +1149,26 @@ This curriculum introduces students to the foundations of data science through h
 
 </div>
 </div>
+
+---
+
+## Discussion & Feedback
+
+Have suggestions for collaborators, module content, or datasets? Leave a comment below.
+
+<script src="https://giscus.app/client.js"
+        data-repo="SCDS-AUB/intro2ds"
+        data-repo-id=""
+        data-category="General"
+        data-category-id=""
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
