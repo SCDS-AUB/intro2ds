@@ -4,7 +4,7 @@ layout: note
 module: "Vision"
 category: "Lecture"
 notebook_source: "lecture.ipynb"
-colab_url: ""
+colab_url: "https://colab.research.google.com/github/SCDS-AUB/intro2ds/blob/main/lectures/vision/how-machines-see-1/lecture.ipynb"
 permalink: /lectures/vision/how-machines-see-1/
 ---
 

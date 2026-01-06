@@ -1,8 +1,12 @@
 # SCDS Course Materials
 title: "SCDS Course Materials"
 description: "Data Science and Computing lectures at AUB"
-baseurl: ""
-url: ""
+baseurl: "/intro2ds"  # for GitHub Pages
+url: "https://scds-aub.github.io"
+
+# GitHub settings for Colab links
+github_repo: "SCDS-AUB/intro2ds"
+github_branch: "main"
 
 # Build settings
 markdown: kramdown
