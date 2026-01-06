@@ -68,62 +68,128 @@ layout: default
     color: inherit;
 }
 
-/* GitHub Dark theme syntax highlighting */
-.note-content .highlight, .note-content .highlighter-rouge {
-    background: #0d1117;
-}
-.note-content .highlight pre, .note-content .highlighter-rouge pre {
+/* Syntax highlighting (Rouge) - GitHub-like DARK theme, tuned for Python */
+.highlighter-rouge .highlight,
+.note-content .highlight {
     background: #0d1117;
     color: #c9d1d9;
+    border: none;
+    border-radius: 6px;
 }
-/* Comments */
-.note-content .highlight .c, .note-content .highlight .c1, .note-content .highlight .cm, .note-content .highlight .cs {
+
+/* Remove Rouge line-number gutters and borders (even if generated) */
+.rouge-table { border-collapse: collapse; width: 100%; }
+.rouge-table .rouge-gutter, .rouge-table .gl, .rouge-gutter.gl { display: none !important; }
+.rouge-table td, .rouge-table th { border: none !important; padding: 0 !important; }
+.rouge-code pre { margin: 0 !important; }
+
+/* Force printed outputs (plaintext) to be light and readable */
+.language-plaintext.highlighter-rouge .highlight,
+.language-plaintext.highlighter-rouge .highlight pre,
+.language-plaintext .highlight,
+.language-plaintext .highlight pre {
+    background: #f7f7f9 !important;
+    color: #2c3e50 !important;
+    border: none !important;
+}
+
+.highlighter-rouge .highlight pre,
+.note-content .highlight pre {
+    background: transparent;
+    margin: 0;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Base token colors for dark background */
+.highlight .c,      /* Comment */
+.highlight .cm,     /* Comment.Multiline */
+.highlight .c1,     /* Comment.Single */
+.highlight .cs {    /* Comment.Special */
     color: #8b949e;
     font-style: italic;
 }
-/* Strings */
-.note-content .highlight .s, .note-content .highlight .s1, .note-content .highlight .s2, .note-content .highlight .sh, .note-content .highlight .si, .note-content .highlight .sx, .note-content .highlight .sr, .note-content .highlight .sa {
-    color: #a5d6ff;
-}
-/* Keywords */
-.note-content .highlight .k, .note-content .highlight .kd, .note-content .highlight .kn, .note-content .highlight .kp, .note-content .highlight .kr, .note-content .highlight .kt, .note-content .highlight .kc {
+
+.highlight .k,      /* Keyword */
+.highlight .kd,     /* Keyword.Declaration */
+.highlight .kn,     /* Keyword.Namespace */
+.highlight .kp,     /* Keyword.Pseudo */
+.highlight .kr,     /* Keyword.Reserved */
+.highlight .kc {    /* Keyword.Constant */
     color: #ff7b72;
+    font-weight: 600;
 }
-/* Functions and methods */
-.note-content .highlight .nf, .note-content .highlight .fm, .note-content .highlight .nb {
-    color: #d2a8ff;
-}
-/* Numbers */
-.note-content .highlight .mi, .note-content .highlight .mf, .note-content .highlight .mh, .note-content .highlight .mo, .note-content .highlight .il {
-    color: #79c0ff;
-}
-/* Operators */
-.note-content .highlight .o, .note-content .highlight .ow {
-    color: #ff7b72;
-}
-/* Variables and names */
-.note-content .highlight .n, .note-content .highlight .na, .note-content .highlight .nc, .note-content .highlight .no, .note-content .highlight .nd, .note-content .highlight .ni, .note-content .highlight .ne, .note-content .highlight .nv, .note-content .highlight .bp, .note-content .highlight .vc, .note-content .highlight .vg, .note-content .highlight .vi {
-    color: #c9d1d9;
-}
-/* Punctuation */
-.note-content .highlight .p {
-    color: #c9d1d9;
-}
-/* Built-in constants */
-.note-content .highlight .bp {
-    color: #79c0ff;
-}
-/* Self */
-.note-content .highlight .bp {
+
+.highlight .o,      /* Operator */
+.highlight .ow {    /* Operator.Word */
     color: #ff7b72;
 }
 
-/* Output blocks (plaintext) - light background */
-.note-content .language-plaintext pre,
-.note-content .highlighter-rouge:not(.language-python) pre {
-    background: #f6f8fa;
-    color: #24292f;
-    border: 1px solid #d0d7de;
+.highlight .na,     /* Name.Attribute */
+.highlight .nb,     /* Name.Builtin */
+.highlight .bp,     /* Name.Builtin.Pseudo (self) */
+.highlight .nc,     /* Name.Class */
+.highlight .nn,     /* Name.Namespace */
+.highlight .ni,     /* Name.Entity */
+.highlight .ne {    /* Name.Exception */
+    color: #79c0ff;
+}
+
+.highlight .nf,     /* Name.Function */
+.highlight .fm {    /* Name.Function.Magic (Python dunder) */
+    color: #d2a8ff;
+}
+
+.highlight .nt {    /* Name.Tag */
+    color: #7ee787;
+}
+
+.highlight .nv,     /* Name.Variable */
+.highlight .vc,     /* Name.Variable.Class */
+.highlight .vg,     /* Name.Variable.Global */
+.highlight .vi {    /* Name.Variable.Instance */
+    color: #e6edf3;
+}
+
+.highlight .s,      /* String */
+.highlight .sa,
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .s1,
+.highlight .s2,
+.highlight .se,     /* String.Escape */
+.highlight .sh,
+.highlight .si,
+.highlight .sr,
+.highlight .ss,
+.highlight .sx {    /* String.Other */
+    color: #7ee787;
+}
+
+.highlight .m,      /* Number */
+.highlight .mb,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .mo {    /* Number.Other */
+    color: #79c0ff;
+}
+
+.highlight .err {   /* Error */
+    color: #ff7b72;
+    background-color: #290000;
+}
+
+/* Diff coloring (for completeness) */
+.highlight .gd { color: #ffdcd7; background-color: #67060c; }
+.highlight .gi { color: #aff5b4; background-color: #033a16; }
+
+/* Improve code readability */
+.highlight code, .highlight pre {
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    line-height: 1.5;
+    font-size: 14px;
 }
 
 /* Headers */
