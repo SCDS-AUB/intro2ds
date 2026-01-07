@@ -1158,17 +1158,16 @@ Have suggestions for collaborators, module content, or datasets? Leave a comment
 
 <script src="https://giscus.app/client.js"
         data-repo="SCDS-AUB/intro2ds"
-        data-repo-id=""
+        data-repo-id="R_kgDOQ0050g"
         data-category="General"
-        data-category-id=""
+        data-category-id="DIC_kwDOQ0050s4C0pnD"
         data-mapping="pathname"
         data-strict="0"
         data-reactions-enabled="1"
         data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="light"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
         data-lang="en"
-        data-loading="lazy"
         crossorigin="anonymous"
         async>
 </script>
