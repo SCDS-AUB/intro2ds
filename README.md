@@ -1,76 +1,54 @@
-# SCDS Course Materials
+# SCDS Intro to Data Science Website
 
-Lecture materials for the School of Data Science and Computing at the American University of Beirut.
+Course materials website for DATA 201/202 at AUB School of Data Science and Computing.
 
-## Live Site
-
-Visit: https://scds-aub.github.io/intro2ds/
+**Live site:** https://scds-aub.github.io/intro2ds/
 
 ## Structure
 
 ```
 website/
-├── index.html              # Homepage
-├── lectures.html           # All lectures listing
-├── analysis.html           # Faculty research analysis
-├── lectures/
-│   └── vision/            # Vision module
-│       ├── how-machines-see-1/
-│       │   ├── transcript.md
-│       │   ├── lecture.md
-│       │   ├── lecture.ipynb
-│       │   └── lecture.html
-│       └── how-machines-see-2/
-│           └── ...
+├── _config.yml          # Jekyll configuration
+├── _layouts/            # Page templates (default, note, lecture)
+├── lectures/            # Lecture content (ipynb + generated md)
 ├── scripts/
-│   └── generate_lecture.py # Lecture generation script
-├── _layouts/               # Jekyll templates
-└── assets/css/            # Stylesheets
+│   ├── sync_lectures.py         # Convert ipynb → md
+│   └── find_collaborators.py    # Search AUB publications
+├── data/collaborators.json      # Faculty-module mapping
+├── syllabus.md          # Full curriculum with collaborators
+├── collaborators.md     # Faculty by department
+└── .github/workflows/jekyll.yml # GitHub Actions deployment
 ```
-
-## Adding New Lectures
-
-1. Create folder: `lectures/<module>/<lecture-name>/`
-2. Add transcript: `transcript.md`
-3. Run generator:
-   ```bash
-   python scripts/generate_lecture.py <module> <lecture-name> --transcript transcript.md
-   ```
-4. Edit generated `lecture.md` with full content
-5. Commit and push
 
 ## Local Development
 
 ```bash
-# Install dependencies
 bundle install
-
-# Run local server
-bundle exec jekyll serve
-
-# Visit http://localhost:4000
+bundle exec jekyll serve --port 4001
+# View at http://127.0.0.1:4001/intro2ds/
 ```
 
-## Content Pipeline
+## Adding Lectures
 
-1. **Transcript** - Voice notes or written outline
-2. **Notebook** - Interactive Jupyter notebook
-3. **Markdown** - Web-ready formatted content
-4. **Website** - Published for students
+1. Create folder: `lectures/<module>/<lecture-name>/`
+2. Add `lecture.ipynb`
+3. Run: `python scripts/sync_lectures.py`
 
-## Modules
+## Collaborator Search
 
-- [x] Vision - Computer vision fundamentals
-- [ ] Language - NLP and text processing
-- [ ] Time Series - Temporal data analysis
-- [ ] Networks - Graph analysis
-- [ ] Statistics - Probabilistic thinking
-- [ ] Audio - Signal processing
+```bash
+python scripts/find_collaborators.py
+```
+Searches AUB ScholarWorks (2021+) for faculty matching module topics.
 
-## Contributing
+## Features
 
-See course coordinator for content contributions.
+- MathJax LaTeX rendering
+- GitHub Dark syntax highlighting
+- Colab badge integration
+- Giscus comments (GitHub Discussions)
 
----
+## Deployment
 
-School of Data Science and Computing, AUB
+GitHub Actions auto-deploys on push to main.
+Settings → Pages → Source: "GitHub Actions"
