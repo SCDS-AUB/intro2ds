@@ -38,6 +38,15 @@ permalink: /syllabus/
     margin: 0;
 }
 
+.module-title a {
+    color: white;
+    text-decoration: none;
+}
+
+.module-title a:hover {
+    text-decoration: underline;
+}
+
 .module-storyline {
     font-style: italic;
     opacity: 0.9;
@@ -93,49 +102,19 @@ permalink: /syllabus/
     font-size: 0.95em;
 }
 
-.collaborator-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.collaborator-item {
-    background: #fafafa;
-    border: 1px solid #e8e8e8;
-    border-radius: 6px;
-    padding: 1em;
-    margin-bottom: 0.8em;
-}
-
-.collaborator-item:last-child {
-    margin-bottom: 0;
-}
-
-.collaborator-name {
-    font-weight: 600;
-    color: var(--primary-color);
-}
-
-.collaborator-dept {
-    color: #666;
-    font-size: 0.85em;
-    margin-left: 0.3em;
-}
-
-.collaborator-reason {
+.module-link {
+    display: inline-block;
+    margin-top: 1em;
+    padding: 0.5em 1em;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
     font-size: 0.9em;
-    color: #555;
-    margin-top: 0.5em;
-    line-height: 1.5;
 }
 
-.publication-ref {
-    font-style: italic;
-    color: #666;
-    font-size: 0.85em;
-    margin-top: 0.4em;
-    padding-left: 1em;
-    border-left: 2px solid #ddd;
+.module-link:hover {
+    background: #3d566e;
 }
 
 .course-divider {
@@ -167,7 +146,7 @@ permalink: /syllabus/
 
 # Course Syllabus
 
-This curriculum introduces students to the foundations of data science through hands-on projects and real-world applications. Each module connects computing skills with domain expertise through collaboration with faculty across AUB.
+This curriculum introduces students to the foundations of data science through hands-on projects and real-world applications. Each module connects computing skills with domain expertise through interdisciplinary collaboration.
 
 </div>
 
@@ -179,7 +158,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 1</div>
-<div class="module-title">Introduction to Data Science and Systems Thinking</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data201/module01-data-revolution">Introduction to Data Science and Systems Thinking</a></div>
 <div class="module-storyline">"Understanding the Data Revolution"</div>
 </div>
 <div class="module-body">
@@ -199,23 +178,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="computing-box">Python, Jupyter, Pandas, Basic Visualization</div>
 </div>
 
-<div class="module-section">
-<div class="section-title">Potential Collaborators</div>
-<ul class="collaborator-list">
-<li class="collaborator-item">
-<span class="collaborator-name">Marco Bardus</span>
-<span class="collaborator-dept">— Health Promotion and Community Health</span>
-<div class="collaborator-reason">Research on data management, digital health systems, and privacy in data collection</div>
-<div class="publication-ref">"Data Management and Privacy Policy of COVID-19 Contact-Tracing Applications" (2021)</div>
-</li>
-<li class="collaborator-item">
-<span class="collaborator-name">Nadine Panayot</span>
-<span class="collaborator-dept">— Archaeological Museum</span>
-<div class="collaborator-reason">Digital archiving and data collection in cultural heritage contexts</div>
-<div class="publication-ref">"Shattered glass of Beirut: collaboration between the Archaeological Museum and international partners" (2023)</div>
-</li>
-</ul>
-</div>
+<a href="{{ site.baseurl }}/modules/data201/module01-data-revolution" class="module-link">View Full Module</a>
 
 </div>
 </div>
@@ -224,7 +187,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 2</div>
-<div class="module-title">Data Structures and Data Visualization</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data201/module02-visualization">Data Structures and Data Visualization</a></div>
 <div class="module-storyline">"Telling Stories with Data"</div>
 </div>
 <div class="module-body">
@@ -244,21 +207,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="computing-box">Interactive visualizations with Matplotlib, Seaborn, Plotly</div>
 </div>
 
-<div class="module-section">
-<div class="section-title">Potential Collaborators</div>
-<ul class="collaborator-list">
-<li class="collaborator-item">
-<span class="collaborator-name">Sara Najem</span>
-<span class="collaborator-dept">— Computer Science / Network Science</span>
-<div class="collaborator-reason">Network visualization and graph-based data representation</div>
-</li>
-<li class="collaborator-item">
-<span class="collaborator-name">Graphic Design Faculty</span>
-<span class="collaborator-dept">— School of Architecture and Design</span>
-<div class="collaborator-reason">Visual communication principles, infographic design</div>
-</li>
-</ul>
-</div>
+<a href="{{ site.baseurl }}/modules/data201/module02-visualization" class="module-link">View Full Module</a>
 
 </div>
 </div>
@@ -267,7 +216,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 3</div>
-<div class="module-title">Statistical Thinking</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data201/module03-statistics">Statistical Thinking</a></div>
 <div class="module-storyline">"Probabilistic Thinking"</div>
 </div>
 <div class="module-body">
@@ -287,28 +236,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="computing-box">Simulations and statistical analysis in Python (scipy, statsmodels)</div>
 </div>
 
-<div class="module-section">
-<div class="section-title">Potential Collaborators</div>
-<ul class="collaborator-list">
-<li class="collaborator-item">
-<span class="collaborator-name">Hala Ghattas</span>
-<span class="collaborator-dept">— Center for Research on Population and Health</span>
-<div class="collaborator-reason">Quantitative methods in social science research, survey design and analysis</div>
-<div class="publication-ref">"The impact of cash transfers on Syrian refugees in Lebanon" (2022)</div>
-</li>
-<li class="collaborator-item">
-<span class="collaborator-name">Samer Kharroubi</span>
-<span class="collaborator-dept">— Food Security Program / Agriculture</span>
-<div class="collaborator-reason">Bayesian methods and statistical modeling in real-world applications</div>
-<div class="publication-ref">"Use of Bayesian Markov Chain Monte Carlo methods to model Kuwait nutrition surveillance data" (2022)</div>
-</li>
-<li class="collaborator-item">
-<span class="collaborator-name">Victor Araman</span>
-<span class="collaborator-dept">— Suliman S. Olayan School of Business</span>
-<div class="collaborator-reason">Business analytics, statistical decision-making</div>
-</li>
-</ul>
-</div>
+<a href="{{ site.baseurl }}/modules/data201/module03-statistics" class="module-link">View Full Module</a>
 
 </div>
 </div>
@@ -317,7 +245,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 4</div>
-<div class="module-title">Optimization and Introduction to Machine Learning</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data201/module04-optimization">Optimization and Introduction to Machine Learning</a></div>
 <div class="module-storyline">"Optimization and Model Fitting"</div>
 </div>
 <div class="module-body">
@@ -337,29 +265,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="computing-box">Python implementations of basic optimization (scipy.optimize, sklearn)</div>
 </div>
 
-<div class="module-section">
-<div class="section-title">Potential Collaborators</div>
-<ul class="collaborator-list">
-<li class="collaborator-item">
-<span class="collaborator-name">Ali Yassine</span>
-<span class="collaborator-dept">— Industrial Engineering and Management</span>
-<div class="collaborator-reason">Multi-objective optimization, operations research</div>
-<div class="publication-ref">"Multi-objective optimization for comprehensive water, energy, food nexus modeling" (2023)</div>
-</li>
-<li class="collaborator-item">
-<span class="collaborator-name">Majdi Abou Najm</span>
-<span class="collaborator-dept">— Civil and Environmental Engineering</span>
-<div class="collaborator-reason">Optimization in environmental systems, resource management</div>
-<div class="publication-ref">"Multi-objective optimization for comprehensive water, energy, food nexus modeling" (2023)</div>
-</li>
-<li class="collaborator-item">
-<span class="collaborator-name">Hussein Tarhini</span>
-<span class="collaborator-dept">— Industrial Engineering and Management</span>
-<div class="collaborator-reason">Scheduling optimization, traveling salesman problems</div>
-<div class="publication-ref">"The traveling salesman puts-on a hard hat – Tower crane scheduling in construction" (2021)</div>
-</li>
-</ul>
-</div>
+<a href="{{ site.baseurl }}/modules/data201/module04-optimization" class="module-link">View Full Module</a>
 
 </div>
 </div>
@@ -368,7 +274,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 5</div>
-<div class="module-title">Unsupervised Learning</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data201/module05-clustering">Unsupervised Learning</a></div>
 <div class="module-storyline">"Discovering Patterns"</div>
 </div>
 <div class="module-body">
@@ -388,23 +294,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="computing-box">Applying clustering techniques using sklearn, visualization with UMAP</div>
 </div>
 
-<div class="module-section">
-<div class="section-title">Potential Collaborators</div>
-<ul class="collaborator-list">
-<li class="collaborator-item">
-<span class="collaborator-name">Ali Chehab</span>
-<span class="collaborator-dept">— Electrical and Computer Engineering</span>
-<div class="collaborator-reason">Pattern recognition, anomaly detection in IoT systems</div>
-<div class="publication-ref">"A machine learning based framework for IoT device identification and abnormal traffic detection" (2022)</div>
-</li>
-<li class="collaborator-item">
-<span class="collaborator-name">Firas Kobeissy</span>
-<span class="collaborator-dept">— Biochemistry and Molecular Genetics</span>
-<div class="collaborator-reason">Clustering methods in biomarker discovery and proteomics</div>
-<div class="publication-ref">"On-tissue spatially resolved glycoproteomics guided by N-glycan imaging" (2022)</div>
-</li>
-</ul>
-</div>
+<a href="{{ site.baseurl }}/modules/data201/module05-clustering" class="module-link">View Full Module</a>
 
 </div>
 </div>
@@ -413,7 +303,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 6</div>
-<div class="module-title">Language</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data201/module06-language">Language</a></div>
 <div class="module-storyline">"Machines that Speak"</div>
 </div>
 <div class="module-body">
@@ -433,29 +323,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="computing-box">Hands-on NLP with NLTK, spaCy, Hugging Face transformers</div>
 </div>
 
-<div class="module-section">
-<div class="section-title">Potential Collaborators</div>
-<ul class="collaborator-list">
-<li class="collaborator-item">
-<span class="collaborator-name">Wassim El-Hajj</span>
-<span class="collaborator-dept">— Computer Science</span>
-<div class="collaborator-reason">Arabic NLP, text feature selection, computational linguistics</div>
-<div class="publication-ref">"A panoramic survey of natural language processing in the Arab world" (2021)</div>
-</li>
-<li class="collaborator-item">
-<span class="collaborator-name">Hala Darwish</span>
-<span class="collaborator-dept">— Psychology / Hariri School of Nursing</span>
-<div class="collaborator-reason">Cognitive assessment through language, Arabic language validation</div>
-<div class="publication-ref">"The Brief International Cognitive Assessment in Multiple Sclerosis: Validation in Arabic" (2022)</div>
-</li>
-<li class="collaborator-item">
-<span class="collaborator-name">Pia Zeinoun</span>
-<span class="collaborator-dept">— Psychology</span>
-<div class="collaborator-reason">Psycholinguistics, Arabic language assessment tools</div>
-<div class="publication-ref">"Factors associated with motor dexterity in a Lebanese sample" (2022)</div>
-</li>
-</ul>
-</div>
+<a href="{{ site.baseurl }}/modules/data201/module06-language" class="module-link">View Full Module</a>
 
 </div>
 </div>
@@ -464,7 +332,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 7</div>
-<div class="module-title">Vision</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data201/module07-vision">Vision</a></div>
 <div class="module-storyline">"Machines that See"</div>
 </div>
 <div class="module-body">
@@ -484,28 +352,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="computing-box">Deep neural networks with PyTorch, image processing with OpenCV</div>
 </div>
 
-<div class="module-section">
-<div class="section-title">Potential Collaborators</div>
-<ul class="collaborator-list">
-<li class="collaborator-item">
-<span class="collaborator-name">Mariette Awad</span>
-<span class="collaborator-dept">— Electrical and Computer Engineering</span>
-<div class="collaborator-reason">Deep learning for image analysis, agricultural AI, medical imaging</div>
-<div class="publication-ref">"GAN-based semi-automated augmentation online tool for agricultural pest detection" (2022)</div>
-</li>
-<li class="collaborator-item">
-<span class="collaborator-name">Imad Elhajj</span>
-<span class="collaborator-dept">— Mechanical Engineering / Biomedical Engineering</span>
-<div class="collaborator-reason">Computer vision for robotics, 3D sensing</div>
-<div class="publication-ref">"Data representation for CNN based internet traffic classification" (2022)</div>
-</li>
-<li class="collaborator-item">
-<span class="collaborator-name">Daniel Asmar</span>
-<span class="collaborator-dept">— Mechanical Engineering</span>
-<div class="collaborator-reason">Video processing, 3D reconstruction, robotics vision</div>
-</li>
-</ul>
-</div>
+<a href="{{ site.baseurl }}/modules/data201/module07-vision" class="module-link">View Full Module</a>
 
 </div>
 </div>
@@ -514,7 +361,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 8</div>
-<div class="module-title">Audio</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data201/module08-audio">Audio</a></div>
 <div class="module-storyline">"Machines that Hear"</div>
 </div>
 <div class="module-body">
@@ -534,23 +381,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="computing-box">Fast Fourier Transform, librosa, speech synthesis</div>
 </div>
 
-<div class="module-section">
-<div class="section-title">Potential Collaborators</div>
-<ul class="collaborator-list">
-<li class="collaborator-item">
-<span class="collaborator-name">Rima El Hassan</span>
-<span class="collaborator-dept">— Biomedical Engineering</span>
-<div class="collaborator-reason">Signal processing, neural engineering, frequency analysis</div>
-<div class="publication-ref">"Frequency dependent, reversible focused ultrasound suppression of evoked potentials" (2022)</div>
-</li>
-<li class="collaborator-item">
-<span class="collaborator-name">Massoud Khraiche</span>
-<span class="collaborator-dept">— Biomedical Engineering</span>
-<div class="collaborator-reason">Neural signal processing, biosensor data analysis</div>
-<div class="publication-ref">"Frequency dependent, reversible focused ultrasound suppression of evoked potentials" (2022)</div>
-</li>
-</ul>
-</div>
+<a href="{{ site.baseurl }}/modules/data201/module08-audio" class="module-link">View Full Module</a>
 
 </div>
 </div>
@@ -559,7 +390,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 9</div>
-<div class="module-title">Time-Series Data and Forecasting</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data201/module09-timeseries">Time-Series Data and Forecasting</a></div>
 <div class="module-storyline">"Measuring things in time"</div>
 </div>
 <div class="module-body">
@@ -579,28 +410,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="computing-box">Python-based forecasting (statsmodels, Prophet)</div>
 </div>
 
-<div class="module-section">
-<div class="section-title">Potential Collaborators</div>
-<ul class="collaborator-list">
-<li class="collaborator-item">
-<span class="collaborator-name">Assaad Eid</span>
-<span class="collaborator-dept">— Biomedical Engineering / Anatomy</span>
-<div class="collaborator-reason">Real-time sensor monitoring, glucose monitoring systems</div>
-<div class="publication-ref">"A Non-Invasive Flexible Glucose Monitoring Sensor Using a Broadband Reject Filter" (2021)</div>
-</li>
-<li class="collaborator-item">
-<span class="collaborator-name">Joseph Costantine</span>
-<span class="collaborator-dept">— Electrical and Computer Engineering</span>
-<div class="collaborator-reason">Sensor networks, real-time data collection systems</div>
-<div class="publication-ref">"A Non-Invasive Flexible Glucose Monitoring Sensor Using a Broadband Reject Filter" (2021)</div>
-</li>
-<li class="collaborator-item">
-<span class="collaborator-name">Jihad Touma</span>
-<span class="collaborator-dept">— Physics</span>
-<div class="collaborator-reason">Dynamical systems, chaos theory, physics-based modeling</div>
-</li>
-</ul>
-</div>
+<a href="{{ site.baseurl }}/modules/data201/module09-timeseries" class="module-link">View Full Module</a>
 
 </div>
 </div>
@@ -609,7 +419,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 10</div>
-<div class="module-title">Learning Functions: Regression and Classification</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data201/module10-regression">Learning Functions: Regression and Classification</a></div>
 <div class="module-storyline">"Learning from examples"</div>
 </div>
 <div class="module-body">
@@ -629,22 +439,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="computing-box">Model training and evaluation in Python (sklearn, cross-validation)</div>
 </div>
 
-<div class="module-section">
-<div class="section-title">Potential Collaborators</div>
-<ul class="collaborator-list">
-<li class="collaborator-item">
-<span class="collaborator-name">Hala Ghattas</span>
-<span class="collaborator-dept">— Center for Research on Population and Health</span>
-<div class="collaborator-reason">Predictive modeling in public health, social determinants of health</div>
-<div class="publication-ref">"Development of a Prediction Model for the Management of Noncommunicable Diseases" (2022)</div>
-</li>
-<li class="collaborator-item">
-<span class="collaborator-name">Arij Daou</span>
-<span class="collaborator-dept">— Neuroscience</span>
-<div class="collaborator-reason">Neural state classification, brain signal analysis</div>
-</li>
-</ul>
-</div>
+<a href="{{ site.baseurl }}/modules/data201/module10-regression" class="module-link">View Full Module</a>
 
 </div>
 </div>
@@ -653,7 +448,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 11</div>
-<div class="module-title">Deep Learning for Vision and Language</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data201/module11-deeplearning">Deep Learning for Vision and Language</a></div>
 <div class="module-storyline">"Advanced Neural Networks"</div>
 </div>
 <div class="module-body">
@@ -673,22 +468,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="computing-box">Transfer learning, fine-tuning pre-trained models (PyTorch, Hugging Face)</div>
 </div>
 
-<div class="module-section">
-<div class="section-title">Potential Collaborators</div>
-<ul class="collaborator-list">
-<li class="collaborator-item">
-<span class="collaborator-name">Mariette Awad</span>
-<span class="collaborator-dept">— Electrical and Computer Engineering</span>
-<div class="collaborator-reason">Deep transfer learning, cross-domain applications, medical imaging AI</div>
-<div class="publication-ref">"A Progressive and Cross-Domain Deep Transfer Learning Framework for Wrist Fracture Detection" (2021)</div>
-</li>
-<li class="collaborator-item">
-<span class="collaborator-name">Hazem Hajj</span>
-<span class="collaborator-dept">— Electrical and Computer Engineering</span>
-<div class="collaborator-reason">Deep learning for text and vision, Arabic AI</div>
-</li>
-</ul>
-</div>
+<a href="{{ site.baseurl }}/modules/data201/module11-deeplearning" class="module-link">View Full Module</a>
 
 </div>
 </div>
@@ -697,7 +477,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 12</div>
-<div class="module-title">Machine Learning in Society</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data201/module12-ethics">Machine Learning in Society</a></div>
 <div class="module-storyline">"Responsible Innovation"</div>
 </div>
 <div class="module-body">
@@ -717,28 +497,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="computing-box">Evaluating models for fairness (Fairlearn, AIF360)</div>
 </div>
 
-<div class="module-section">
-<div class="section-title">Potential Collaborators</div>
-<ul class="collaborator-list">
-<li class="collaborator-item">
-<span class="collaborator-name">Rima Nakkash</span>
-<span class="collaborator-dept">— Health Promotion and Community Health</span>
-<div class="collaborator-reason">Research ethics, policy implications of data use</div>
-<div class="publication-ref">"A call to advance and translate research into policy on governance of AI in healthcare" (2022)</div>
-</li>
-<li class="collaborator-item">
-<span class="collaborator-name">Fadi El-Jardali</span>
-<span class="collaborator-dept">— Health Management and Policy</span>
-<div class="collaborator-reason">Evidence-based policy, ethical guidelines development</div>
-<div class="publication-ref">"Development of a STandard reporting guideline for Evidence based Practice" (2022)</div>
-</li>
-<li class="collaborator-item">
-<span class="collaborator-name">Philosophy Department Faculty</span>
-<span class="collaborator-dept">— Philosophy</span>
-<div class="collaborator-reason">Ethical frameworks, technology ethics</div>
-</li>
-</ul>
-</div>
+<a href="{{ site.baseurl }}/modules/data201/module12-ethics" class="module-link">View Full Module</a>
 
 </div>
 </div>
@@ -747,7 +506,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 13</div>
-<div class="module-title">Project – Application and Integration</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data201/module13-project">Project - Application and Integration</a></div>
 <div class="module-storyline">"Real-World Impact"</div>
 </div>
 <div class="module-body">
@@ -762,21 +521,7 @@ This curriculum introduces students to the foundations of data science through h
 </ul>
 </div>
 
-<div class="module-section">
-<div class="section-title">Potential Collaborators</div>
-<ul class="collaborator-list">
-<li class="collaborator-item">
-<span class="collaborator-name">School of Architecture and Design</span>
-<span class="collaborator-dept">— Design</span>
-<div class="collaborator-reason">Data storytelling, visual presentation of results</div>
-</li>
-<li class="collaborator-item">
-<span class="collaborator-name">Ammar Mohanna</span>
-<span class="collaborator-dept">— Industry / Alumni</span>
-<div class="collaborator-reason">Industry deployment, product development</div>
-</li>
-</ul>
-</div>
+<a href="{{ site.baseurl }}/modules/data201/module13-project" class="module-link">View Full Module</a>
 
 </div>
 </div>
@@ -785,7 +530,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 14</div>
-<div class="module-title">Project Presentations and Reflections</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data201/module14-presentations">Project Presentations and Reflections</a></div>
 <div class="module-storyline">"Sharing Your Insights"</div>
 </div>
 <div class="module-body">
@@ -800,6 +545,8 @@ This curriculum introduces students to the foundations of data science through h
 </ul>
 </div>
 
+<a href="{{ site.baseurl }}/modules/data201/module14-presentations" class="module-link">View Full Module</a>
+
 </div>
 </div>
 
@@ -811,7 +558,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 1</div>
-<div class="module-title">Data Acquisition and Cleaning</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data202/module01-acquisition">Data Acquisition and Cleaning</a></div>
 <div class="module-storyline">"Transforming Raw Data into Insights"</div>
 </div>
 <div class="module-body">
@@ -831,13 +578,15 @@ This curriculum introduces students to the foundations of data science through h
 <div class="computing-box">Automated data cleaning (pandas, BeautifulSoup, requests)</div>
 </div>
 
+<a href="{{ site.baseurl }}/modules/data202/module01-acquisition" class="module-link">View Full Module</a>
+
 </div>
 </div>
 
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 2</div>
-<div class="module-title">Large-Scale Databases and Cloud Computing</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data202/module02-databases">Large-Scale Databases and Cloud Computing</a></div>
 <div class="module-storyline">"Working with Large and Complex Datasets"</div>
 </div>
 <div class="module-body">
@@ -857,16 +606,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="computing-box">Distributed processing with Spark, SQL databases</div>
 </div>
 
-<div class="module-section">
-<div class="section-title">Potential Collaborators</div>
-<ul class="collaborator-list">
-<li class="collaborator-item">
-<span class="collaborator-name">Mher Sagherian</span>
-<span class="collaborator-dept">— Computer Science</span>
-<div class="collaborator-reason">Databases and cloud computing infrastructure</div>
-</li>
-</ul>
-</div>
+<a href="{{ site.baseurl }}/modules/data202/module02-databases" class="module-link">View Full Module</a>
 
 </div>
 </div>
@@ -874,7 +614,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 3</div>
-<div class="module-title">Real-Time Time-Series Data</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data202/module03-streaming">Real-Time Time-Series Data</a></div>
 <div class="module-storyline">"Forecasting and Pattern Discovery in Temporal Data"</div>
 </div>
 <div class="module-body">
@@ -894,16 +634,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="computing-box">Implementing real-time time-series models, streaming pipelines</div>
 </div>
 
-<div class="module-section">
-<div class="section-title">Potential Collaborators</div>
-<ul class="collaborator-list">
-<li class="collaborator-item">
-<span class="collaborator-name">Mechatronics Lab</span>
-<span class="collaborator-dept">— Mechanical Engineering</span>
-<div class="collaborator-reason">Sensors and measurement devices for real-time processing</div>
-</li>
-</ul>
-</div>
+<a href="{{ site.baseurl }}/modules/data202/module03-streaming" class="module-link">View Full Module</a>
 
 </div>
 </div>
@@ -911,7 +642,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 4</div>
-<div class="module-title">OCR and Document Processing</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data202/module04-ocr">OCR and Document Processing</a></div>
 <div class="module-storyline">"Bringing Text from the Physical to the Digital World"</div>
 </div>
 <div class="module-body">
@@ -932,21 +663,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="computing-box">OCR implementation with Tesseract, deep learning approaches</div>
 </div>
 
-<div class="module-section">
-<div class="section-title">Potential Collaborators</div>
-<ul class="collaborator-list">
-<li class="collaborator-item">
-<span class="collaborator-name">Joanna Doummar</span>
-<span class="collaborator-dept">— Geology / Hydrology</span>
-<div class="collaborator-reason">Historical hydrology archives digitization</div>
-</li>
-<li class="collaborator-item">
-<span class="collaborator-name">History Department</span>
-<span class="collaborator-dept">— History and Archaeology</span>
-<div class="collaborator-reason">Historical document processing, manuscript digitization</div>
-</li>
-</ul>
-</div>
+<a href="{{ site.baseurl }}/modules/data202/module04-ocr" class="module-link">View Full Module</a>
 
 </div>
 </div>
@@ -954,7 +671,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 5</div>
-<div class="module-title">Music and Speech</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data202/module05-music-speech">Music and Speech</a></div>
 <div class="module-storyline">"Analyzing and Generating Sound with AI"</div>
 </div>
 <div class="module-body">
@@ -974,13 +691,15 @@ This curriculum introduces students to the foundations of data science through h
 <div class="computing-box">Speech-to-text, music analysis with librosa, generative audio models</div>
 </div>
 
+<a href="{{ site.baseurl }}/modules/data202/module05-music-speech" class="module-link">View Full Module</a>
+
 </div>
 </div>
 
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 6</div>
-<div class="module-title">Videos and Fields</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data202/module06-video">Videos and Fields</a></div>
 <div class="module-storyline">"Processing Spatial and Temporal Visual Data"</div>
 </div>
 <div class="module-body">
@@ -1000,13 +719,15 @@ This curriculum introduces students to the foundations of data science through h
 <div class="computing-box">Video analysis with OpenCV, 3D data processing</div>
 </div>
 
+<a href="{{ site.baseurl }}/modules/data202/module06-video" class="module-link">View Full Module</a>
+
 </div>
 </div>
 
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 7</div>
-<div class="module-title">Graph Data Science and Network Analysis</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data202/module07-networks">Graph Data Science and Network Analysis</a></div>
 <div class="module-storyline">"Understanding networks in datapoints"</div>
 </div>
 <div class="module-body">
@@ -1027,26 +748,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="computing-box">NetworkX, graph algorithms, Dijkstra's algorithm</div>
 </div>
 
-<div class="module-section">
-<div class="section-title">Potential Collaborators</div>
-<ul class="collaborator-list">
-<li class="collaborator-item">
-<span class="collaborator-name">Sara Najem</span>
-<span class="collaborator-dept">— Computer Science</span>
-<div class="collaborator-reason">Network science, community detection</div>
-</li>
-<li class="collaborator-item">
-<span class="collaborator-name">Jihad Touma</span>
-<span class="collaborator-dept">— Physics</span>
-<div class="collaborator-reason">Complex systems, network dynamics</div>
-</li>
-<li class="collaborator-item">
-<span class="collaborator-name">Amer Mouawad</span>
-<span class="collaborator-dept">— Computer Science</span>
-<div class="collaborator-reason">Graph algorithms, computational complexity</div>
-</li>
-</ul>
-</div>
+<a href="{{ site.baseurl }}/modules/data202/module07-networks" class="module-link">View Full Module</a>
 
 </div>
 </div>
@@ -1054,7 +756,7 @@ This curriculum introduces students to the foundations of data science through h
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 8</div>
-<div class="module-title">Foundation Models and Scaling</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data202/module08-foundation">Foundation Models and Scaling</a></div>
 <div class="module-storyline">"How big data and big models work"</div>
 </div>
 <div class="module-body">
@@ -1074,13 +776,15 @@ This curriculum introduces students to the foundations of data science through h
 <div class="computing-box">Training LLMs (GPT), prompt engineering, RAG</div>
 </div>
 
+<a href="{{ site.baseurl }}/modules/data202/module08-foundation" class="module-link">View Full Module</a>
+
 </div>
 </div>
 
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 9</div>
-<div class="module-title">GPUs and Model Deployment</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data202/module09-deployment">GPUs and Model Deployment</a></div>
 <div class="module-storyline">"Taking AI from Research to Production"</div>
 </div>
 <div class="module-body">
@@ -1100,13 +804,15 @@ This curriculum introduces students to the foundations of data science through h
 <div class="computing-box">Fine-tuning models with APIs, GPU programming basics, model serving</div>
 </div>
 
+<a href="{{ site.baseurl }}/modules/data202/module09-deployment" class="module-link">View Full Module</a>
+
 </div>
 </div>
 
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 10</div>
-<div class="module-title">Ethics, Bias, and Fairness in Data Science</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data202/module10-ethics">Ethics, Bias, and Fairness in Data Science</a></div>
 <div class="module-storyline">"Ensuring Responsible AI Development"</div>
 </div>
 <div class="module-body">
@@ -1126,13 +832,15 @@ This curriculum introduces students to the foundations of data science through h
 <div class="computing-box">Evaluating bias in AI models, explainability tools (SHAP, LIME)</div>
 </div>
 
+<a href="{{ site.baseurl }}/modules/data202/module10-ethics" class="module-link">View Full Module</a>
+
 </div>
 </div>
 
 <div class="module-card">
 <div class="module-header">
 <div class="module-number">Module 11</div>
-<div class="module-title">Capstone Project</div>
+<div class="module-title"><a href="{{ site.baseurl }}/modules/data202/module11-capstone">Capstone Project</a></div>
 <div class="module-storyline">"Solving a Large-Scale Data Challenge"</div>
 </div>
 <div class="module-body">
@@ -1147,6 +855,8 @@ This curriculum introduces students to the foundations of data science through h
 </ul>
 </div>
 
+<a href="{{ site.baseurl }}/modules/data202/module11-capstone" class="module-link">View Full Module</a>
+
 </div>
 </div>
 
@@ -1154,7 +864,7 @@ This curriculum introduces students to the foundations of data science through h
 
 ## Discussion & Feedback
 
-Have suggestions for collaborators, module content, or datasets? Leave a comment below.
+Have suggestions for module content or datasets? Leave a comment below.
 
 <script src="https://giscus.app/client.js"
         data-repo="SCDS-AUB/intro2ds"
