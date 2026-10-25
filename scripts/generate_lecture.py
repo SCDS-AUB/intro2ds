@@ -188,7 +188,8 @@ def update_lectures_page(module: str, lecture_name: str, title: str, description
       <h3><a href="{{{{ '/lectures/{module}/{lecture_name}/lecture.html' | relative_url }}}}">{ title}</a></h3>
       <p class="description">{description}</p>
       <div class="resources">
-        <a href="{{{{ '/lectures/{module}/{lecture_name}/lecture.ipynb' | relative_url }}}}" class="btn-small">Notebook</a>
+        <a href="https://github.com/{{{{ site.github_repo }}}}/blob/{{{{ site.github_branch }}}}/lectures/{module}/{lecture_name}/lecture.ipynb" class="btn-small">View Notebook</a>
+        <a href="https://colab.research.google.com/github/{{{{ site.github_repo }}}}/blob/{{{{ site.github_branch }}}}/lectures/{module}/{lecture_name}/lecture.ipynb" class="btn-small">Open in Colab</a>
         <a href="{{{{ '/lectures/{module}/{lecture_name}/lecture.md' | relative_url }}}}" class="btn-small">Markdown</a>
       </div>
     </div>
